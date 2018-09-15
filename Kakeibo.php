@@ -97,7 +97,7 @@ class Kakeibo{
                 ORDER BY M.date ASC ";
         $i = 0;
         foreach ($this->db->query($sql) as $row) {
-            $data[$i]['date'] = $row['date'];
+            $data[$i]['date'] = date("Y/m/d", strtotime($row['date']));
             $data[$i]['e_name'] = $row['e_name'];
             $data[$i]['price'] = $row['price'];
             $i++;
