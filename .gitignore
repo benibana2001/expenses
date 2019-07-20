@@ -1,5 +1,6 @@
 .idea
 .DS_Store
 
+vendor
 public/node_modules
 docker/mysql/data
