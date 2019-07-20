@@ -6,7 +6,7 @@
  * Time: 02:10
  */
 
-require_once 'bin/vendor/autoload.php';
+require_once '../bin/vendor/autoload.php';
 
 use Handler\GetAllMonth;
 //use Handler\GetEachMonth;
@@ -20,18 +20,10 @@ $handler = new GetAllMonth();
 
 $data = $handler->getData();
 
-//$writer = new WriterHTML($data);
-$writer = new WriterJson($data);
+$writer = new WriterHTML($data);
+//$writer = new WriterJson($data);
+
+echo $_SERVER["REQUEST_URI"];
 
 $writer->write();
 
-//
-// 月別のデータを取得
-// ~/index.php?month=20180801
-
-
-/*
-echo '<pre>';
-var_dump($data);
-echo '</pre>';
-*/
