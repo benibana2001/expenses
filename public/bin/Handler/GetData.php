@@ -5,7 +5,9 @@
  * Date: 2019-07-20
  * Time: 08:44
  */
-require_once 'DB/DBConnector.class.php';
+namespace Handler;
+
+use DB\DBConnector;
 
 abstract class GetData
 {

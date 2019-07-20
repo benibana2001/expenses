@@ -5,7 +5,7 @@
  * Date: 2019-07-20
  * Time: 08:48
  */
-require_once 'GetData.class.php';
+namespace Handler;
 
 class GetAllMonth extends GetData
 {

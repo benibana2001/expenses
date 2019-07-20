@@ -5,7 +5,7 @@
  * Date: 2019-07-18
  * Time: 15:16
  */
-require_once 'DBConnect.class.php';
+namespace DB;
 
 class DBConnector
 {
@@ -15,8 +15,6 @@ class DBConnector
         $dsn = $ini_array["host.local"]["dsn"];
         $usr = $ini_array["host.local"]["usr"];
         $pwd = $ini_array["host.local"]["usr"];
-
-        var_dump($dsn);
 
         $db = new DBConnect($dsn, $usr, $pwd);
 

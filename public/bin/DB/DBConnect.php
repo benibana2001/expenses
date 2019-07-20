@@ -10,6 +10,8 @@
  * Class DBConnect
  * DB接続用のクラス
  */
+namespace DB;
+
 class DBConnect
 {
     private $dsn;
@@ -28,8 +30,8 @@ class DBConnect
     public function connect()
     {
         try{
-            $this->dbHandler = new PDO($this->dsn, $this->usr, $this->pwd);
-        } catch (PDOException $exc) {
+            $this->dbHandler = new \PDO($this->dsn, $this->usr, $this->pwd);
+        } catch (\PDOException $exc) {
             echo $exc->getMessage();
         }
     }
