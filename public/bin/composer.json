@@ -3,9 +3,7 @@
     "classmap": [
       "app/core",
       "app/controllers",
-      "app/db",
-      "app/handler",
-      "app/writeData"
+      "app/models"
     ]
   }
 }

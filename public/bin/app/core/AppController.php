@@ -7,7 +7,7 @@
  */
 class AppController
 {
-    public $controller = 'home';
+    public $controller = 'month';
 
     public $method = 'index';
 
