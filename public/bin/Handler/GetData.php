@@ -5,10 +5,6 @@
  * Date: 2019-07-20
  * Time: 08:44
  */
-namespace Handler;
-
-use DB\DBConnector;
-
 abstract class GetData
 {
     public $dbHandler;

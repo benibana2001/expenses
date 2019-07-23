@@ -5,8 +5,6 @@
  * Date: 2019-07-20
  * Time: 15:48
  */
-namespace WriteData;
-
 class WriterJson extends Writer
 {
     public function write()

@@ -5,8 +5,6 @@
  * Date: 2019-07-20
  * Time: 15:22
  */
-namespace WriteData;
-
 abstract class Writer
 {
     public $data;

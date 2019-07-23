@@ -5,8 +5,6 @@
  * Date: 2019-07-18
  * Time: 15:16
  */
-namespace DB;
-
 class DBConnector
 {
     public static function createHandler() {

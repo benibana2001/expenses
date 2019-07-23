@@ -10,8 +10,6 @@
  * Class DBConnect
  * DB接続用のクラス
  */
-namespace DB;
-
 class DBConnect
 {
     private $dsn;

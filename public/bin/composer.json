@@ -1,10 +1,11 @@
 {
   "autoload": {
-    "psr-4": {
-      "DB\\": "DB/",
-      "Handler\\": "Handler/",
-      "WriteData\\": "WriteData/",
-      "Client\\": "Client/"
-    }
+    "classmap": [
+      "App",
+      "Controllers",
+      "DB",
+      "Handler",
+      "WriteData"
+    ]
   }
 }

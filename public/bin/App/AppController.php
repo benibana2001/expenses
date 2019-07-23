@@ -5,7 +5,7 @@
  * Date: 2019-07-21
  * Time: 05:34
  */
-class Router
+class AppController
 {
     public $controller = 'home';
 
@@ -18,13 +18,13 @@ class Router
         $url = $this->parseUrl();
 
         // Controller
-        $this->controller = $url[0];
+        $this->controller = ucfirst($url[0]);
 
         unset($url[0]);
 
-        require '../bin/Controllers/' . ucfirst($this->controller) . '.php';
+        require __DIR__ . '/../Controllers/' . ucfirst($this->controller) . '.php';
 
-        $this->controller = new $this->controller;
+        $this->controller = new Month();
 
         // Method
         $this->method = $url[1];

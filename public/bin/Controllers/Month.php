@@ -10,5 +10,12 @@ class Month
     public function index()
     {
         echo 'Hello Month index';
+        $data = new GetAllMonth();
+        $data = $data->getData();
+
+        $writer = new WriterHTML($data);
+
+        $writer->write();
+
     }
 }

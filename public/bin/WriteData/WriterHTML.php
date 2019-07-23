@@ -5,8 +5,6 @@
  * Date: 2019-07-20
  * Time: 15:24
  */
-namespace WriteData;
-
 class WriterHTML extends Writer
 {
     public function write()
@@ -35,5 +33,10 @@ class WriterHTML extends Writer
         }
 
         echo '</table>';
+    }
+
+    static function staticWrite()
+    {
+        echo "Static Write Hello!";
     }
 }

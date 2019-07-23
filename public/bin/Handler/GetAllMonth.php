@@ -5,8 +5,6 @@
  * Date: 2019-07-20
  * Time: 08:48
  */
-namespace Handler;
-
 class GetAllMonth extends GetData
 {
     public function getData()
