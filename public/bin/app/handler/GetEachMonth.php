@@ -7,6 +7,15 @@
  */
 class GetEachMonth extends GetData
 {
+    private $id;
+
+    public function __construct($id)
+    {
+        parent::__construct();
+        $this->id = $id;
+        print($id);
+    }
+
     public function getData()
     {
         $data = $this->fetch();
@@ -19,7 +28,7 @@ class GetEachMonth extends GetData
         $data = array();
 
         // TODO: $monthを外部より取得
-        $month = '20180801';
+        $month = $this->id;
 
         $sql = "SELECT M.date, E.e_name, M.price FROM main AS M
                 INNER JOIN expenses AS E

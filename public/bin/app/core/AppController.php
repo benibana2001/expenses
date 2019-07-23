@@ -22,7 +22,7 @@ class AppController
 
         unset($url[0]);
 
-        require __DIR__ . '/../Controllers/' . ucfirst($this->controller) . '.php';
+        require __DIR__ . '/../controllers/' . ucfirst($this->controller) . '.php';
 
         $this->controller = new Month();
 

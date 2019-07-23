@@ -1,11 +1,11 @@
 {
   "autoload": {
     "classmap": [
-      "App",
-      "Controllers",
-      "DB",
-      "Handler",
-      "WriteData"
+      "app/core",
+      "app/controllers",
+      "app/db",
+      "app/handler",
+      "app/writeData"
     ]
   }
 }
