@@ -13,7 +13,6 @@ class GetEachMonth extends GetData
     {
         parent::__construct();
         $this->id = $id;
-        print($id);
     }
 
     public function getData()

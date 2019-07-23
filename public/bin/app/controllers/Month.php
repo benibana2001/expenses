@@ -7,31 +7,45 @@
  */
 class Month
 {
-    public function index($id = 0)
+    public function html($id = 0)
     {
         switch ($id){
             case 0:
                 $data = $this->getAll();
                 break;
             default :
-                echo '$id';
                 $data = $this->getEach($id);
                 break;
         }
 
-//        $writer = new WriterHTML($data);
+        $writer = new WriterHTML($data);
+
+        $writer->write();
+    }
+
+    public function json($id = 0)
+    {
+        switch ($id){
+            case 0:
+                $data = $this->getAll();
+                break;
+            default :
+                $data = $this->getEach($id);
+                break;
+        }
+
         $writer = new WriterJson($data);
 
         $writer->write();
     }
 
-    public function getEach($id)
+    private function getEach($id)
     {
         $data = new GetEachMonth($id);
         return $data->getData();
     }
 
-    public function getAll()
+    private function getAll()
     {
         $data = new GetAllMonth();
         return $data->getData();
