@@ -40,7 +40,7 @@ class Kakeibo{
     }
 
     function validateDate(){
-        if (
+    if (
             !isset($_POST['date']) ||
             strlen($_POST['date']) < 4
         ) {

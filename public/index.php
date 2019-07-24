@@ -11,7 +11,7 @@
 
     $PWD = $is_local ? 'root': 'yusukesantya';
 
-    $kakeibo = new Kakeibo('mysql:dbname=kakeibo; host='.$HOSTNAME.'; port=3306; charset=utf8', $USERNAME, $PWD);
+    $kakeibo = new Expenses('mysql:dbname=kakeibo; host='.$HOSTNAME.'; port=3306; charset=utf8', $USERNAME, $PWD);
 
     $kakeibo->connect();
 

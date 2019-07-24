@@ -24,7 +24,7 @@ class AppController
 
         require __DIR__ . '/../controllers/' . ucfirst($this->controller) . '.php';
 
-        $this->controller = new Month();
+        $this->controller = new Expenses();
 
         // Method
         $this->method = $url[1];
