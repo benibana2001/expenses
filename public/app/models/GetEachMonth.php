@@ -29,7 +29,7 @@ class GetEachMonth extends GetData
         // TODO: $monthを外部より取得
         $month = $this->id;
 
-        $sql = "SELECT M.date, E.e_name, M.price FROM main AS M
+        $sql = "SELECT M.id, M.date, E.e_name, M.price FROM main AS M
                 INNER JOIN expenses AS E
                 ON M.e_id = E.e_id 
                 WHERE M.date >= " . $month . " AND M.date < " . $month . "+ INTERVAL 1 MONTH
@@ -37,6 +37,7 @@ class GetEachMonth extends GetData
 
         $i = 0;
         foreach ($this->dbHandler->query($sql) as $row) {
+            $data[$i]['id'] = $row['id'];
             $data[$i]['date'] = date("Y/m/d", strtotime($row['date']));
             $data[$i]['e_name'] = $row['e_name'];
             $data[$i]['price'] = $row['price'];

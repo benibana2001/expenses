@@ -17,6 +17,15 @@ class Request
         return false;
     }
 
+    public function isDelete()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+            return true;
+        }
+
+        return false;
+    }
+
     public function getGet($name, $default = null)
     {
         if (isset($_GET[$name])) {

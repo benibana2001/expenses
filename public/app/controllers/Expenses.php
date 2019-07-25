@@ -16,6 +16,10 @@ class Expenses
         if ($req->isPost() === true) {
             $this->method = 'POST';
         }
+
+        if ($req->isDelete() === true) {
+            $this->method = 'DELETE';
+        }
     }
 
     public function month($id = 0)
@@ -27,6 +31,10 @@ class Expenses
 
             case "POST" :
                 $this->post();
+                break;
+
+            case "DELETE" :
+                $this->delete($id);
                 break;
 
             default :
@@ -55,6 +63,13 @@ class Expenses
         $postHandler = new PostExpenses();
 
         $postHandler->postData();
+    }
+
+    private function delete($id)
+    {
+        $deleteHandler = new DeleteExpenses($id);
+
+        $deleteHandler->deleteData();
     }
 
     private function getAll()

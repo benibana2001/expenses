@@ -16,7 +16,7 @@ class GetAllMonth extends GetData
 
     private function fetch()
     {
-        $sql = "SELECT M.date, E.e_name, M.price FROM main AS M
+        $sql = "SELECT M.id, M.date, E.e_name, M.price FROM main AS M
                 INNER JOIN expenses AS E
                 ON M.e_id = E.e_id
                 ORDER BY M.date ASC ;";
@@ -24,6 +24,7 @@ class GetAllMonth extends GetData
         $data = array();
         $i = 0;
         foreach ($this->dbHandler->query($sql) as $row) {
+            $data[$i]['id'] = $row['id'];
             $data[$i]['date'] = $row['date'];
             $data[$i]['e_name'] = $row['e_name'];
             $data[$i]['price'] = $row['price'];

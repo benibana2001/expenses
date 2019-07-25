@@ -32,7 +32,6 @@ class PostExpenses extends PostData
         try {
             $this->validate();
             $this->post();
-            $this->success();
 
         } catch (Exception $e) {
 
@@ -62,6 +61,8 @@ class PostExpenses extends PostData
             $stmt->bindValue(':price', $this->param["price"], \PDO::PARAM_INT);
 
             $stmt->execute();
+
+            $this->success();
         }
 
         catch (Exception $e) {
@@ -71,10 +72,8 @@ class PostExpenses extends PostData
 
     private function success()
     {
-        echo 'Success !';
-        echo '<br>';
-        echo $this->param["date"];
-        echo '<br>';
-        echo $this->param["price"];
+        echo "登録に成功しました。\n";
+        echo "登録内容: \n";
+        echo "日時: " . $this->param["date"] . ", 費目: " . $this->param["e_id"] . ", 金額: " . $this->param["price"] . "\n";
     }
 }

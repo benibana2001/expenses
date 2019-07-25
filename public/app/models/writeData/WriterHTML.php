@@ -16,12 +16,17 @@ class WriterHTML extends Writer
     {
         echo '<table>';
 
+        echo '<tr>' . '<th>ID</th>' . '<th>支払日</th>' . '<th>費目</th>' . '<th>金額</th>' . '</tr>';
+
         foreach ($this->data as $row) {
+            $id = $row["id"];
             $date = date("Y/m/d", strtotime($row['date']));
             $name = $row["e_name"];
             $price = $row["price"];
 
             echo '<tr>';
+
+            echo '<td>' . $id . '</td>';
 
             echo '<td>' . $date . '</td>';
 
