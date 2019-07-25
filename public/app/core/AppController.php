@@ -7,9 +7,9 @@
  */
 class AppController
 {
-    public $controller = 'month';
+    public $controller = 'kakeibo';
 
-    public $method = 'index';
+    public $method = 'month';
 
     public $params = [];
 

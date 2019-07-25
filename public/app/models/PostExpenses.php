@@ -7,9 +7,19 @@
  */
 class PostExpenses extends PostData
 {
+    private $param;
+
     public function __construct()
     {
         parent::__construct();
+
+        $req = new Request();
+
+        $this->param = array(
+            "date" => $req->getPost("date"),
+            "e_id" => $req->getPost("e_id"),
+            "price" => (int)$req->getPost("price")
+        );
     }
 
     public function postData()
@@ -24,54 +34,47 @@ class PostExpenses extends PostData
             $this->post();
             $this->success();
 
-        } catch (\Exception $e) {
-            // TODO: エラー時の処理は、main関数で実行 エラーメッセージを返すのみに留める
-            var_dump($e->getMessage());
+        } catch (Exception $e) {
+
+            echo $e->getMessage();
+
         }
     }
 
     private function validate()
     {
-        if (
-            !isset($_POST['date']) ||
-            strlen($_POST['date']) < 4
-        ) {
-            throw new \Exception('invalid date!');
-        }
+        if (!isset($this->param["date"])) throw new Exception('Post Param "date" is null.');
+
+        if (strlen($this->param["date"]) < 4) throw new Exception('Post Param "date" is invalid.');
+
+        if (strlen($this->param["date"]) === 4) $this->param["date"] = date('Y') . $this->param["date"];
     }
 
     private function post()
     {
-        // TODO: Validateに記述を分散する SQLを投げる処理とは分離する
-        $date = $_POST["date"];
-        $price = (int)$_POST["price"];
-        if(strlen($date) === 4){
-           $date = 2018 . $date;
-        };
-        //
-
-        $sql = 'INSERT INTO `main` (ID, date, e_id, price) VALUES (null, :date, :e_id, :price);';
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(':date', $date);
-        $stmt->bindValue(':e_id', $_POST["e_id"], \PDO::PARAM_STR);
-        $stmt->bindValue(':price', $price, \PDO::PARAM_INT);
-
-        // TODO: 画面書き出しの機能は関数を分離する
         try {
+            $sql = 'INSERT INTO `main` (ID, date, e_id, price) VALUES (null, :date, :e_id, :price);';
+
+            $stmt = $this->dbHandler->prepare($sql);
+
+            $stmt->bindValue(':date', $this->param["date"]);
+            $stmt->bindValue(':e_id', $this->param["e_id"], \PDO::PARAM_STR);
+            $stmt->bindValue(':price', $this->param["price"], \PDO::PARAM_INT);
+
             $stmt->execute();
-            echo 'Success !';
-            echo '<br>';
-            echo $date;
-            echo '<br>';
-            echo $price;
-        }catch (\PDOException $e){
-            throw new \Exception('failed post()');
         }
-        //
+
+        catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
     private function success()
     {
-        // TODO: 登録完了時処理
+        echo 'Success !';
+        echo '<br>';
+        echo $this->param["date"];
+        echo '<br>';
+        echo $this->param["price"];
     }
 }
